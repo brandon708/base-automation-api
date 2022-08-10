@@ -7,26 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import com.everis.base.models.Book;
-import com.everis.base.models.User;
-import com.everis.base.stepDefinitions.ServicioSD;
-import com.google.gson.JsonObject;
+
 import io.cucumber.java.Before;
-import io.restassured.RestAssured;
+
 import io.restassured.builder.*;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import io.restassured.specification.*;
-import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
-import org.hamcrest.CoreMatchers;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static net.serenitybdd.rest.SerenityRest.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import io.restassured.specification.*;
+
+import net.thucydides.core.annotations.Steps;
+
 
 public class FreetogamesSD {
     @Steps
@@ -38,10 +28,6 @@ public class FreetogamesSD {
     private static RequestSpecification requestSpec;
     private static ResponseSpecification responseSpec;
 
-    private Response response;
-    private RequestSpecBuilder builder;
-    private RequestSpecification requestSpecification;
-    private String bodyPost;
 
 
     @Before
@@ -79,6 +65,7 @@ public class FreetogamesSD {
     @Then("valida que la respuesta sea {int}")
     public void validaQueLaRespuestaSea(int i) {
         freetogamesSD.validateStatusCode(i);
+
     }
 
 
